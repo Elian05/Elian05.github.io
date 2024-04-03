@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="description" name="description">
+    <meta name="google" content="notranslate" />
+    <meta content="Elian" name="author">
+
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+    <link href="./assets/favicon.ico" rel="icon">
+
+    <title>Proyect 2</title>
+
+    <link href="./Front-End.css" rel="stylesheet">
+</head>
+<div>
+<body class="">
+    <div id="site-border-left"></div>
+    <div id="site-border-right"></div>
+    <div id="site-border-top"></div>
+    <div id="site-border-bottom"></div>
+    <header>
+        <nav class="navbar  navbar-fixed-top navbar-default">
+            <div class="container">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-collapse" aria-expanded="false">
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav ">
+                        <li><a href="./index.html" title="">01 : Home</a></li>
+                        <li><a href="./works.html" title="">02 : Works</a></li>
+                        <li><a href="./about.html" title="">03 : About me</a></li>
+                        <li><a href="./contact.html" title="">04 : Contact</a></li>
+                    </ul>
+
+
+                    <ul class="nav navbar-nav navbar-right navbar-small visible-md visible-lg">
+                        <li><a href="./work.html" title="">01</a></li>
+                        <li><a href="./Work-avion.html" title="" class="active">02</a></li>
+                        <li><a href="./Work-Calculadora.html" title="">03</a></li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="section-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <img src="./assets/images/fondo2.jpg" class="img-responsive">
+                    <div class="card-container">
+                        <div class="text-center">
+                            <h1 class="h2">02: Avion 2D</h1>
+                        </div>
+
+                        <blockquote>
+                            <p>Este proyecto se llama Avion 2D ya que hace referencia al mitico y clasico juego de 1942</p>
+                            <small class="pull-right">Elian Barra.(coding-dojo)</small>
+                        </blockquote>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div><!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <title>1942 Game</title>
+    
+        <style type="text/css">
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: normal;
+                height: 0vh;
+                margin: 0;
+            }
+    
+            #content {
+                margin-bottom: 0px;
+            }
+    
+            #container {
+                background: url('galaxy.gif');
+                width: 1000px;
+                height: 550px;
+                position: relative;
+            }
+    
+            #hero {
+                background: url('1942.gif');
+                background-position: -85px -180px;
+                width: 28px;
+                height: 28px;
+                position: absolute;
+            }
+    
+            .enemy1 {
+                background: url('1942.gif');
+                background-position: -30px -10px;
+                width: 28px;
+                height: 28px;
+                position: absolute;
+            }
+    
+            .enemy2 {
+                background: url('1942.gif');
+                background-position: -86px -86px;
+                width: 20px;
+                height: 25px;
+                position: absolute;
+            }
+    
+            .bullet {
+                background: url('1942.gif');
+                background-position: -185px -400px;
+                width: 18px;
+                height: 18px;
+                position: absolute;
+            }
+    
+    
+            #audio,
+            #audio1,
+            #audio2,
+            #audio3 {
+                display: none
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div id="content">
+            <div id='container'>
+                <div id='hero'></div>
+                <div id='enemies'></div>
+                <div id='enemies2'></div>
+                <div id='bullets'></div>
+            </div>
+        </div>
+    
+        <div id='score'>0</div>
+    
+        <audio id="audio" controls>
+            <source type="audio/wav" src="explosion.wav">
+        </audio>
+        <audio id="audio1" controls>
+            <source type="audio/wav" src="bala.wav">
+        </audio>
+        <audio id="audio2" controls>
+            <source type="audio/wav" src="balaimpacto.wav">
+        </audio>
+    
+    
+        <script>
+            var score = 0
+
+            var hero = {
+                x: 500,
+                y: 500
+            }
+
+            var enemies = [{ x: 50, y: 50 }, { x: 250, y: 50 }, { x: 450, y: 50 }, { x: 600, y: 50 }, { x: 700, y: 50 }];
+            var enemies2 = [{ x: 100, y: 150 }, { x: 350, y: 150 }, { x: 550, y: 150 }, { x: 650, y: 150 }, { x: 750, y: 150 }];
+
+            var bullets = []
+
+            if (hero.y > 540) {
+                hero.y = 0;
+                enemies[i].x = Math.random() * 850 + 1;
+            }
+
+            function displayHero() {
+                document.getElementById('hero').style.top = hero.y + "px";
+                document.getElementById('hero').style.left = hero.x + "px";
+            }
+
+            function displayEnemies() {
+                var output = '';
+                for (i = 0; i < enemies.length; i++) {
+                    output += "<div class='enemy1' style='top:" + enemies[i].y + "px; left:" + enemies[i].x + "px;'></div>"
+                }
+                document.getElementById('enemies').innerHTML = output;
+            }
+
+            function displayEnemies2() {
+                var output = '';
+                for (i = 0; i < enemies2.length; i++) {
+                    output += "<div class='enemy2' style='top:" + enemies2[i].y + "px; left:" + enemies2[i].x + "px;'></div>"
+                }
+                document.getElementById('enemies2').innerHTML = output;
+            }
+
+            function moveEnemies() {
+                for (i = 0; i < enemies.length; i++) {
+                    enemies[i].y += 5;
+                    if (enemies[i].y > 540) {
+                        enemies[i].y = 0;
+                        enemies[i].x = Math.random() * 850 + 1;
+                    }
+                }
+            }
+
+            function moveEnemies2() {
+                for (i = 0; i < enemies2.length; i++) {
+                    enemies2[i].y += 5;
+                    if (enemies2[i].y > 540) {
+                        enemies2[i].y = 0;
+                        enemies2[i].x = Math.random() * 850 + 1;
+                    }
+                }
+            }
+
+            function moveBullets() {
+                for (i = 0; i < bullets.length; i++) {
+                    bullets[i].y -= 5;
+                    if (bullets[i].y < 0) {
+                        bullets[i] = bullets[bullets.length - 1]
+                        bullets.pop();
+                    }
+                }
+            }
+
+
+
+
+
+            function displayBullets() {
+                var output = '';
+                for (i = 0; i < bullets.length; i++) {
+                    output += "<div class='bullet' style='top:" + bullets[i].y + "px; left:" + bullets[i].x + "px;'></div>"
+                }
+                document.getElementById('bullets').innerHTML = output;
+            }
+
+
+
+
+
+            function gameLoop() {
+                displayHero();
+                moveEnemies();
+                moveEnemies2();
+                displayEnemies();
+                displayEnemies2();
+                moveBullets();
+                displayBullets();
+                detectCollision();
+                detectCollisionWithEnemy();
+            }
+
+            function detectCollision() {
+                for (i = 0; i < bullets.length; i++) {
+                    for (var j = 0; j < enemies.length; j++) {
+                        if (Math.abs(bullets[i].x - enemies[j].x) < 15 && Math.abs(bullets[i].y - enemies[j].y) < 10) {
+                            score += 20
+                            document.getElementById('score').innerHTML = score;
+                            enemies[j].x = Math.random() * 850 + 1;
+                            enemies[j].y = 0
+                            var audio = document.getElementById("audio2");
+                            audio.play();
+                        }
+                    }
+                    for (var z = 0; z < enemies2.length; z++) {
+                        if (Math.abs(bullets[i].x - enemies2[z].x) < 15 && Math.abs(bullets[i].y - enemies2[z].y) < 10) {
+                            score += 20
+                            document.getElementById('score').innerHTML = score;
+                            enemies2[z].x = Math.random() * 850 + 1;
+                            enemies2[z].y = 0
+                            var audio = document.getElementById("audio2");
+                            audio.play();
+                        }
+                    }
+                }
+            }
+
+            function detectCollisionWithEnemy() {
+                for (var j = 0; j < enemies.length; j++) {
+                    if (Math.abs(hero.x - enemies[j].x) < 15 && Math.abs(hero.y - enemies[j].y) < 10) {
+                        score -= 200
+                        document.getElementById('score').innerHTML = score;
+                        hero.x = 500;
+                        hero.y = 500;
+                        var audio = document.getElementById("audio");
+                        audio.play();
+                    }
+                }
+                for (var i = 0; i < enemies2.length; i++) {
+                    if (Math.abs(hero.x - enemies2[i].x) < 15 && Math.abs(hero.y - enemies2[i].y) < 10) {
+                        score -= 200
+                        document.getElementById('score').innerHTML = score;
+                        hero.x = 500;
+                        hero.y = 500;
+                        var audio = document.getElementById("audio");
+                        audio.play();
+                    }
+                }
+            }
+
+            setInterval(gameLoop, 30);
+
+            document.onkeydown = function (a) {
+                if (a.keyCode == 37 && hero.x > 10) {
+                    hero.x -= 10
+                } else if (a.keyCode == 39 && hero.x <= 970) {
+                    hero.x += 10
+                } else if (a.keyCode == 38 && hero.y > 10) {
+                    hero.y -= 10
+                } else if (a.keyCode == 40 && hero.y < 530) {
+                    hero.y += 10
+                } else if (a.keyCode == 32) {
+                    var audio = document.getElementById("audio1");
+                    audio.play();
+                    bullets.push({ x: hero.x + 5, y: hero.y - 15 })
+                    displayBullets();
+                }
+                displayHero();
+            }
+
+            displayHero();
+            displayEnemies();
+        </script>
+    </div>
+    </body>
+    
+    </html>
+
+
+
+
