@@ -1,0 +1,59 @@
+
+html{
+      font-family: sans-serif;
+}
+
+
+.form-container {
+  background-color: rgba(135, 173, 234, 0.8);
+  padding: 60px;
+  width: 110%;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(1, 7, 10, 0.2);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #006ac7;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4640ed;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 25px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #302aed;
+}
+
+.error-message {
+  color: red;
+}
+
+form p {
+  margin-top: 10px;
+}
+
+form a {
+  color: #010901;
+  text-decoration: none;
+}
+
+form a:hover {
+  text-decoration: underline;
+}
